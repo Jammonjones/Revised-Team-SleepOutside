@@ -11,3 +11,14 @@
 export default function productDetails(productId) {
     return productId + 1
 };
+
+function addProductToCart(product) {
+    // I edited this function to add an aray of items to local storage insead of just one item it works
+    // on local but not yet on netlify
+    let currentCartItems = getLocalStorage("so-cart");
+    if (!Array.isArray(currentCartItems)){
+    currentCartItems = [];
+    }
+    currentCartItems.push(product);
+    setLocalStorage("so-cart", currentCartItems);
+  }
