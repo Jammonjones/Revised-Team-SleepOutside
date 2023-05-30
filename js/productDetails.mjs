@@ -9,7 +9,7 @@
 // that everything happens 
 // in the right order
 export default function productDetails(productId) {
-    return productId + 1
+    return productId + 1;
 };
 
 function addProductToCart(product) {
@@ -22,3 +22,7 @@ function addProductToCart(product) {
     currentCartItems.push(product);
     setLocalStorage("so-cart", currentCartItems);
   }
+
+function renderProductDetails() {
+    return 1;
+};
