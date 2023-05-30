@@ -3,13 +3,17 @@
 // to lookup data for a specific 
 // product and display it in HTML
 // it follows the black box philosophy
-
+import {findProductById} from "./productData.mjs";
 // productDetails() is the entrypoint  
 // into our module and will make sure 
 // that everything happens 
 // in the right order
-export default function productDetails(productId) {
-    return productId + 1;
+let product = {};
+
+export default async function displayProductDetails(productId) {
+   // specific code goes here
+    product = await findProductById(productId);
+    renderProductDetails();
 };
 
 function addProductToCart(product) {
@@ -36,5 +40,16 @@ async function addToCartHandler(e) {
   
 
 function renderProductDetails() {
-    return 1;
-};
+    // specific code goes here
+    document.querySelector("#productName").innerText = product.Brand.Name;
+    document.querySelector("#productNameWithoutBrand").innerText =
+      product.NameWithoutBrand;
+    document.querySelector("#productImage").src = product.Image;
+    document.querySelector("#productImage").alt = product.Name;
+    document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
+    document.querySelector("#productColorName").innerText =
+      product.Colors[0].ColorName;
+    document.querySelector("#productDescriptionHtmlSimple").innerHTML =
+      product.DescriptionHtmlSimple;
+    document.querySelector("#addToCart").dataset.id = product.Id;
+  };
