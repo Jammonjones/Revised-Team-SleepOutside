@@ -7,7 +7,7 @@ function convertToJson(res) {
 }
 // we can use this function for more than tents by adding
 // categories in the paramenter
-export function getData(category = "tents" && "backpacks" && "hammocks") {
+export function getData(category = "tents") {
   return fetch(`../json/${category}.json`)
     .then(convertToJson)
     // It is very common to see short 

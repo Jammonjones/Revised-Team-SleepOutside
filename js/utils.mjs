@@ -21,12 +21,14 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
-// this function retrieves information from a url
+// this function retrieves the
+// product id from a url and returns it
 // example url below :
 // <a href="product_pages/index.html?product=880RR" >
+// product id = 880RR
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product')
-  return param;
+  const product = urlParams.get("product")
+  return product;
 }
