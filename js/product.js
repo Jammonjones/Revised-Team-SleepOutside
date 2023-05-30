@@ -22,3 +22,8 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
+// this can get the product id when someone navigates to
+// the product-details page
+let productId = getParam("productId");
+console.log(findProductById(productId));
