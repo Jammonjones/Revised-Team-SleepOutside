@@ -1,5 +1,10 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, getParam } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { productDetails } from "./productDetails.mjs";
+
+// Load product details page using url param and imported prebuilt function
+const productId = getParam("product");
+productDetails(productId);
 
 function addProductToCart(product) {
   // I edited this function to add an aray of items to local storage insead of just one item it works
@@ -22,3 +27,4 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
