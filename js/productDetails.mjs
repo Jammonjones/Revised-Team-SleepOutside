@@ -5,11 +5,11 @@ import { findProductById } from "./productData.mjs";
 // Getting the JS object about the product based on the product ID received
 export async function productDetails(productId){
     let currentProduct = await findProductById(productId);
-    renderProductDetails(currentProduct);
+    renderProductDetails(currentProduct, productId);
 }
 
 // Add content to the product details page using the currentProdcut Information
-function renderProductDetails(product){
+function renderProductDetails(product, productId){
     document.querySelector("#productName").textContent = product.Name;
     document.querySelector("#productNameWithoutBrand").textContent = product.NameWithoutBrand;
     document.querySelector("#productImage").setAttribute("src", product.Image);
@@ -17,4 +17,5 @@ function renderProductDetails(product){
     document.querySelector("#productFinalPrice").textContent = `$${product.FinalPrice}`;
     document.querySelector("#productColorName").textContent = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;
+    document.querySelector("#addToCart").setAttribute("data-id", productId);
 }
