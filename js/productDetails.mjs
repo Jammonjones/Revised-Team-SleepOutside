@@ -2,7 +2,19 @@
 // Import some other functions that will be used here
 import { findProductById } from "./productData.mjs";
 
+// Getting the JS object about the product based on the product ID received
 export async function productDetails(productId){
     let currentProduct = await findProductById(productId);
-    console.log(currentProduct);
+    renderProductDetails(currentProduct);
+}
+
+// Add content to the product details page using the currentProdcut Information
+function renderProductDetails(product){
+    document.querySelector("#productName").textContent = product.Name;
+    document.querySelector("#productNameWithoutBrand").textContent = product.NameWithoutBrand;
+    document.querySelector("#productImage").setAttribute("src", product.Image);
+    document.querySelector("#productImage").setAttribute("alt", "Product Image");
+    document.querySelector("#productFinalPrice").textContent = `$${product.FinalPrice}`;
+    document.querySelector("#productColorName").textContent = product.Colors[0].ColorName;
+    document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;
 }
