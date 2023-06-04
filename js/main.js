@@ -1,1 +1,1 @@
-import {productList} from "./productList.mjs";
+import {productList} from "../js/productList.mjs";
