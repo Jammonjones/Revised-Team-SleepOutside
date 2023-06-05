@@ -26,5 +26,5 @@ export default async function productCardTemplate(product) {
 }
 
 function only4tents () {
-  
+
 }
