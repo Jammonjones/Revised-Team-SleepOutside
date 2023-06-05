@@ -31,3 +31,14 @@ export function renderWithTemplate(templateFn, parentElement, data, callback, po
     callback(data);
   }
 }
+// currying is returning a new function
+function loadTemplate(path) {
+  return async function() {
+    let response = await fetch(path)
+    if (response.ok) {
+      let html = await response.text();
+      console.log(html);
+      return html;
+    }
+  }
+}
