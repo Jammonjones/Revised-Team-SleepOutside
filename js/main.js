@@ -1,3 +1,3 @@
-import {productList} from "../js/productList.mjs";
-console.log(productList());
-productList("#selector", "tents");
+import productList from "./productList.mjs";
+
+productList(".product-list", "tents");

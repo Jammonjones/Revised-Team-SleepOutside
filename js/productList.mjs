@@ -1,4 +1,4 @@
-import {getData} from "../js/productData.mjs";
+import {getData} from "./productData.mjs";
 import {renderListWithTemplate} from "./utils.mjs";
 // the function below generates 
 // a list of product cards in HTML from an array.
@@ -23,10 +23,4 @@ export default async function productCardTemplate(product) {
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
   </li>`;
-}
-
-// insertAdjacentHTML is better then innerHTML
-function renderList(theSelector, list) {
-  const htmlStrings =  list.map(productCardTemplate);
-  el.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
 }
