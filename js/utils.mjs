@@ -21,3 +21,13 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin", clear = true) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, template);
+  if (callback){
+    callback(data);
+  }
+}
