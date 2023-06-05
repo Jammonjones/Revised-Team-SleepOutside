@@ -24,3 +24,7 @@ export default async function productCardTemplate(product) {
     <p class="product-card__price">$${product.FinalPrice}</p></a>
   </li>`;
 }
+
+function only4tents () {
+  
+}
