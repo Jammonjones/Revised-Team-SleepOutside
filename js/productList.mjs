@@ -24,3 +24,11 @@ export default async function productCardTemplate(product) {
     <p class="product-card__price">$${product.FinalPrice}</p></a>
   </li>`;
 }
+
+// what do I write here?
+function renderList() {
+  foreach (product in products)
+  {
+    productCardTemplate();
+  }
+}
