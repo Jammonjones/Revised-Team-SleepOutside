@@ -25,10 +25,8 @@ export default async function productCardTemplate(product) {
   </li>`;
 }
 
-// what do I write here?
-function renderList() {
-  foreach (product in products)
-  {
-    productCardTemplate();
-  }
+// insertAdjacentHTML is better then innerHTML
+function renderList(theSelector, list) {
+  const htmlStrings =  list.map(productCardTemplate);
+  el.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
 }
