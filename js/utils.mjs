@@ -42,3 +42,10 @@ function loadTemplate(path) {
     }
   }
 }
+function loadHeaderFooter() {
+  let headerTemplateFn = loadTemplate("/partials/header.html");
+  let footerTemplateFn = loadTemplate("/partials/footer.html");
+  let header = document.querySelector("header");
+  let footer = document.querySelector("footer");
+  renderWithTemplate(headerTemplateFn, footerTemplateFn);
+}
