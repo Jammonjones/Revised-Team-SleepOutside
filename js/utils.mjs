@@ -45,11 +45,8 @@ function loadTemplate(path) {
 export async function loadHeaderFooter() {
   let headerTemplateFn = loadTemplate("/partials/header.html");
   let footerTemplateFn = loadTemplate("/partials/footer.html");
-  // #main-header???
-  let headerBoy = document.querySelector("header");
-  // #main-footer???
-  let footerBoy = document.querySelector("footer");
-  
+  let headerBoy = document.querySelector("this-is-header");
+  let footerBoy = document.querySelector("this-is-footer");
   renderWithTemplate(headerTemplateFn, headerBoy);
   renderWithTemplate(footerTemplateFn, footerBoy);
 }
