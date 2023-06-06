@@ -42,10 +42,14 @@ function loadTemplate(path) {
     }
   }
 }
-function loadHeaderFooter() {
+export async function loadHeaderFooter() {
   let headerTemplateFn = loadTemplate("/partials/header.html");
   let footerTemplateFn = loadTemplate("/partials/footer.html");
-  let header = document.querySelector("header");
-  let footer = document.querySelector("footer");
-  renderWithTemplate(headerTemplateFn, footerTemplateFn);
+  // #main-header???
+  let headerBoy = document.querySelector("header");
+  // #main-footer???
+  let footerBoy = document.querySelector("footer");
+  
+  renderWithTemplate(headerTemplateFn, headerBoy);
+  renderWithTemplate(footerTemplateFn, footerBoy);
 }
