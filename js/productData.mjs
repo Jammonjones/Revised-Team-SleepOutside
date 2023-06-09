@@ -1,3 +1,6 @@
+// below is an enviroment variable
+const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -9,6 +12,8 @@ function convertToJson(res) {
 export default async function getData(category) {
   const response = await fetch(baseURL + `products/search/${category}`);
   const data = await convertToJson(response);
+  // data.Result instead of data??? why???
+  // data sent back from APIs is structured differently
   return data.Result;
 }
 
