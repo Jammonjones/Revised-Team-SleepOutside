@@ -40,3 +40,32 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlString =  list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
+
+export function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin", clear = true) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, template);
+  if (callback){
+    callback(data);
+  }
+}
+// currying is returning a new function
+function loadTemplate(path) {
+  return async function() {
+    let response = await fetch(path)
+    if (response.ok) {
+      let html = await response.text();
+      console.log(html);
+      return html;
+    }
+  }
+}
+export async function loadHeaderFooter() {
+  let headerTemplateFn = loadTemplate("/partials/header.html");
+  let footerTemplateFn = loadTemplate("/partials/footer.html");
+  let headerBoy = document.querySelector("this-is-header");
+  let footerBoy = document.querySelector("this-is-footer");
+  renderWithTemplate(headerTemplateFn, headerBoy);
+  renderWithTemplate(footerTemplateFn, footerBoy);
+}
