@@ -1,3 +1,6 @@
+// below is an enviroment variable
+const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -5,16 +8,12 @@ function convertToJson(res) {
     throw new Error("Bad Response");
   }
 }
-// we can use this function for more than tents by adding
-// categories in the paramenter
-export function getData(category = "tents") {
-  return fetch(`../json/${category}.json`)
-    .then(convertToJson)
-    // It is very common to see short 
-    // functions that just return some 
-    // value or expression written using 
-    // the arrow function syntax.
-    .then((data) => data);
+export default async function getData(category) {
+  const response = await fetch(baseURL + `products/search/${category}`);
+  const data = await convertToJson(response);
+  // data.Result instead of data??? why???
+  // data sent back from APIs is structured differently
+  return data.Result;
 }
 
 export async function findProductById(id) {

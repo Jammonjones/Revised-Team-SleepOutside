@@ -1,0 +1,3 @@
+This info was found in step 3 of team assignment 5
+VITE_SERVER_URL=http://server-nodejs.cit.byui.edu:3000/
+VITE_SERVER_URL=https://wdd330-backend.onrender.com
