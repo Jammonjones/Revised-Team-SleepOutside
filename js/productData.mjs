@@ -8,7 +8,6 @@ function convertToJson(res) {
     throw new Error("Bad Response");
   }
 }
-
 export default async function getData(category) {
   const response = await fetch(baseURL + `products/search/${category}`);
   const data = await convertToJson(response);
@@ -18,6 +17,7 @@ export default async function getData(category) {
 }
 
 export async function findProductById(id) {
+  // async/await syntax is easier to read than .then() based promise
   const products = await getData();
   return products.find((item) => item.Id === id);
 }
