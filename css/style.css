@@ -226,3 +226,7 @@ footer {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
 }
+.category-grid-container a:hover {
+  border: 10px solid grey;
+  background-color: grey;
+}
