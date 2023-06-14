@@ -18,6 +18,7 @@ export default async function getData(category) {
 
 export async function findProductById(id) {
   // async/await syntax is easier to read than .then() based promise
-  const products = await getData();
-  return products.find((item) => item.Id === id);
+  const response = await fetch(baseURL + `product/${id}`);
+  const product = await convertToJson(response);
+  return product.Result;
 }
